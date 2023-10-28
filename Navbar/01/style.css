@@ -1,0 +1,168 @@
+/* Base | Reset */
+*,
+*::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: #000;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+button {
+  font: inherit;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+/* Base | Reset - end */
+.primary-header {
+  background-color: #000;
+  border-bottom: 1px solid #fff;
+}
+.navigation {
+  position: relative;
+  height: 3.75rem;
+  display: flex;
+  align-items: center;
+  column-gap: 0.625rem;
+}
+.navigation-toggle {
+  border-right: 1px solid #fff;
+  transition: background-color 250ms;
+}
+.navigation.active .navigation-toggle {
+  background: #fff url(./images/cross.svg) center/20px no-repeat;
+}
+.navigation.active .button-toggle-img {
+  display: none;
+}
+.button-has-icon {
+  width: 60px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+.button-has-icon:not(.navigation-toggle) {
+  border-left: 1px solid #fff;
+}
+.button-icon {
+  display: grid;
+  place-items: center;
+}
+.navigation-logo {
+  width: 8.25rem;
+}
+.button-icon-img {
+  width: 1.25rem;
+}
+.button-icon-img * {
+  fill: #fff;
+  stroke: #fff;
+}
+.button-has-icon:hover .button-icon-img * {
+  fill: #c8ff5f;
+  stroke: #c8ff5f;
+}
+.main-navigation {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 100%);
+  background-color: #fff;
+  padding: 3vw;
+  z-index: 800;
+  transform: translateX(-100%);
+  transition: transform 250ms;
+}
+.navigation.active .main-navigation {
+  transform: translateX(0);
+}
+.navigation-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.625rem;
+}
+.navigation-item + .navigation-item {
+  border-top: 1px solid #000000;
+}
+.navigation-link {
+  display: inline-block;
+  font-family: "Anton", sans-serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+  padding-top: 0.9375rem;
+  transition: color 250ms;
+}
+.navigation-link:hover {
+  color: #c8ff5f;
+}
+.navigation-link:first-of-type {
+  padding-top: 0;
+}
+.navigation-icon-group {
+  align-self: stretch;
+  display: flex;
+  margin-left: auto;
+}
+@media (min-width: 41.875em) {
+  .navigation {
+    height: 4.375rem;
+    column-gap: 1.875rem;
+  }
+  .navigation-logo {
+    width: 10.875rem;
+  }
+}
+@media (min-width: 64em) {
+  .navigation {
+    column-gap: 4.375rem;
+    padding-left: 1.822916667vw;
+  }
+  .navigation-toggle {
+    display: none;
+  }
+  .main-navigation {
+    position: initial;
+    width: initial;
+    height: initial;
+    background-color: transparent;
+    padding: initial;
+    transform: initial;
+    transition: none;
+  }
+  .navigation-list {
+    flex-direction: row;
+    column-gap: 1.25rem;
+  }
+  .navigation-link {
+    font-family: "Bai Jamjuree", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    padding-top: 0;
+  }
+}
