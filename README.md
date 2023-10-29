@@ -23,8 +23,6 @@ From this example, here’s how you navigate:
 2. Open the `Navbar` sub-directory.
 3. Inside, find folder `01`.
 
-Within this `numbered` folder, you'll also find a project thumbnail for quick reference.
-
 ## License
 
 No formalities here! Feel free to use these code snippets however you wish. No need to worry about strict licensing - consider it open for your creative application and learning. Enjoy!
