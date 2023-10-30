@@ -31,7 +31,7 @@ svg {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 2fr 4.5fr 1.25fr 1.75fr;
   gap: 1rem;
-  height: 95%;
+  height: 100%;
 }
 .grid-item {
   position: relative;
