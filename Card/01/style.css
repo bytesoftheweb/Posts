@@ -1,0 +1,86 @@
+/* Base | Reset */
+*,
+*::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: #0f0b23;
+  padding: 5rem 1.6rem;
+}
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+.wrap {
+  width: 100%;
+}
+/* Base | Reset - end */
+.table {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(16.25rem, 100%), 1fr));
+  gap: 0.625rem;
+  max-width: 60rem;
+  margin: auto;
+}
+.table__item {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.375rem;
+  text-align: center;
+  color: #f5f3fb;
+  background-color: #281b3e;
+  padding: 1.5rem 1.25rem;
+}
+.table__title {
+  font-size: 1.5rem;
+  color: #b378d3;
+}
+.table__plan {
+  font-weight: 500;
+}
+.table__plan-currency {
+  font-size: 1.25rem;
+}
+.table__plan-price {
+  font-size: 3rem;
+  font-weight: 800;
+}
+.table__list {
+  list-style: none;
+  font-size: 0.875rem;
+  padding-inline: 0.625rem;
+  padding-bottom: 1.25rem;
+}
+.table__button {
+  font: inherit;
+  color: #0f0b23;
+  background-color: #b378d3;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  padding: 0.625rem 1.25rem;
+  margin-top: auto;
+  margin-inline: auto;
+  transition: transform 250ms, box-shadow 250ms;
+  font-size: 14px;
+}
+.table__button:hover,
+.table__button:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 1.25rem 2.55rem -0.625rem #b378d3;
+}
