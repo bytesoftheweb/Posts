@@ -67,7 +67,7 @@ a {
   display: none;
 }
 .card-cta {
-  grid-column: 2 /-1;
+  grid-column: 2 / -1;
   display: inline-flex;
   align-items: center;
   column-gap: 2rem;
@@ -141,7 +141,7 @@ a {
     visibility: visible;
   }
   .card-cta {
-    grid-column: 6 /-1;
+    grid-column: 6 / -1;
     transition: background-color 250ms, color 250ms;
   }
   .card:hover .card-cta {
