@@ -133,7 +133,6 @@ a {
     overflow: hidden;
     opacity: 0;
     visibility: hidden;
-    pointer-events: none;
     transition: scale 250ms, opacity 250ms, visibility 250ms;
   }
   .card:hover .card-image-wrapper {
