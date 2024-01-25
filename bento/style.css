@@ -1,0 +1,73 @@
+/* ============================ */
+/* IGNORE */
+/* ============================ */
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: "Satoshi variable", sans-serif;
+  /* display: grid; */
+  /* place-items: center; */
+  background-color: #000;
+  padding: 1rem;
+}
+/* ============================ */
+.bento {
+  max-width: 75rem;
+  height: 37.5rem;
+  display: grid;
+  gap: 1rem;
+}
+.bento-item {
+  --l-color: rgba(255, 255, 255, 0.05);
+  min-height: 13rem;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--l-color);
+  padding: 1.5rem;
+  border: 1px solid var(--l-color);
+  border-radius: 0.5rem;
+  backdrop-filter: blur(10px);
+}
+.bento-item span {
+  margin-top: auto;
+  margin-bottom: 0.25rem;
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+@media (width > 768px) {
+  .bento {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(7, 1fr);
+  }
+  .bento-item:nth-child(1) {
+    grid-row: span 7;
+  }
+  .bento-item:nth-child(2) {
+    grid-row: span 3;
+  }
+  .bento-item:nth-child(3) {
+    grid-row: span 4;
+  }
+}
+@media (width > 1024px) {
+  .bento {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .bento-item:nth-child(4) {
+    grid-row: span 4;
+  }
+  .bento-item:nth-child(5) {
+    grid-row: span 3;
+  }
+}
