@@ -1,0 +1,42 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+}
+
+.form-group {
+  display: block;
+  position: relative;
+  isolation: isolate;
+}
+.form-group::before {
+  content: "";
+  background-color: #64c781;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
+  transition-property: opacity, translate;
+  transition-duration: 250ms, 150ms;
+}
+.form-group:focus-within::before {
+  opacity: 1;
+  translate: 4px 4px;
+}
+.form-label {
+  position: absolute;
+  translate: 0 -1.25rem;
+}
+.form-field {
+  width: 100%;
+  height: 1.875rem;
+  padding: 0 0.5rem;
+  border: 1px solid;
+  border-radius: 0;
+  outline: none;
+}
