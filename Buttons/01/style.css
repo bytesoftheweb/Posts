@@ -1,0 +1,74 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+}
+.button {
+  width: 12.5rem;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  isolation: isolate;
+}
+.button::before,
+.button::after {
+  content: "";
+  position: absolute;
+  left: -0.375rem;
+  width: calc(100% + 0.75rem);
+  height: calc(100% - 1.5rem);
+  border: 2px solid #343232;
+  z-index: -1;
+}
+.button::before {
+  top: -0.375rem;
+  border-bottom: 0;
+}
+.button::after {
+  bottom: -0.375rem;
+  border-top: 0;
+}
+.button span {
+  display: block;
+  background-color: #343232;
+  color: #fff;
+  padding: 1rem 2rem;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition: color 300ms;
+}
+.button:hover span {
+  color: #343232;
+}
+.button span::before,
+.button span::after {
+  content: "";
+  position: absolute;
+}
+.button span::before {
+  background-color: #b29cf9;
+  inset: 0;
+  z-index: -1;
+  transform: translateX(calc(-100% - 2.5vw)) skew(-10deg);
+  transition: transform 300ms;
+}
+.button:hover span::before {
+  transform: none;
+}
+.button span::after {
+  width: 0.375rem;
+  height: 0.375rem;
+  background-color: #b29cf9;
+  right: 0;
+  bottom: 0;
+  transition: background-color 300ms;
+}
+.button:hover span::after {
+  background-color: #343232;
+}
