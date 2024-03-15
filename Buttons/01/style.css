@@ -1,3 +1,4 @@
+/*== RESET ==*/
 *,
 *::before,
 *::after {
@@ -8,8 +9,21 @@
 html {
   box-sizing: border-box;
 }
+body {
+  /* ==CENTERING ==*/
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  /* ==END CENTERING ==*/
+  background-color: #eee9ff;
+}
+/*== END RESET ==*/
 .button {
+  font-family: "Space Grotesk", sans-serif;
+  text-transform: uppercase;
   width: 12.5rem;
+  background: none;
+  padding: 0.375rem;
   border: none;
   cursor: pointer;
   position: relative;
@@ -19,18 +33,18 @@ html {
 .button::after {
   content: "";
   position: absolute;
-  left: -0.375rem;
-  width: calc(100% + 0.75rem);
-  height: calc(100% - 1.5rem);
+  left: 0;
+  width: 100%;
+  height: calc(50% - 3px);
   border: 2px solid #343232;
   z-index: -1;
 }
 .button::before {
-  top: -0.375rem;
+  top: 0;
   border-bottom: 0;
 }
 .button::after {
-  bottom: -0.375rem;
+  bottom: 0;
   border-top: 0;
 }
 .button span {
