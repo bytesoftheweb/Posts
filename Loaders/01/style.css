@@ -1,0 +1,81 @@
+/* == Reset == */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  display: grid;
+  place-content: center;
+  padding: 16px;
+  background-color: #000;
+}
+/* == End reset == */
+.container {
+  perspective: 500px;
+}
+.loader {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-image: linear-gradient(97deg, 
+                  #000 40%, #73ffa1);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  animation: rotate 5s infinite ease-in-out;
+}
+.loader::before,
+.loader::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 0, 0, 0.5);
+}
+.loader::after {
+  translate: 0 0 15px;
+  border-color: rgba(115, 255, 161, 0.75);
+  border-bottom-color: transparent;
+  border-inline-color: transparent;
+  animation: rotate-ring 1s infinite linear;
+}
+.loader span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50% 10px;
+  color: #fff;
+  font-family: "Space Grotesk";
+}
+@keyframes rotate-ring {
+  100% {
+    rotate: 360deg;
+  }
+}
+@keyframes rotate {
+  20% {
+    rotate: 40deg y;
+    translate: 0 -5px;
+  }
+  40% {
+    rotate: x 40deg;
+    translate: 0 5px;
+  }
+  60% {
+    rotate: -40deg y;
+    translate: -5px 0;
+  }
+  80% {
+    rotate: x -40deg;
+    translate: 5px 0;
+  }
+}
