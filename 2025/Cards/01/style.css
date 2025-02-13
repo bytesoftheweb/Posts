@@ -1,0 +1,243 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto", serif;
+    background-color: #FFC6C6;
+}
+
+.card-wrapper {
+    perspective: 1000px;
+    transform: rotate(-90deg);
+}
+
+.card {
+    width: 180px;
+    height: 280px;
+    background-color: #fff;
+    border: 1px solid;
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform 250ms;
+    box-shadow: inset 5px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.envelope:hover .card {
+    transform: rotateY(-15deg);
+    transition-delay: 1750ms;
+}
+
+/* Card cover styling */
+.card-cover {
+    position: absolute;
+    inset: 0;
+    text-align: center;
+    outline: 1px solid #000;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: transform 500ms 0ms;
+}
+
+.envelope:hover .card-cover {
+    transform: rotateY(-135deg);
+    transition-delay: 2250ms;
+}
+
+.card-side {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    background-color: #fff;
+    display: grid;
+    place-items: center;
+}
+
+.card-side-secondary {
+    background-color: #fff;
+    transform: rotateY(180deg);
+    box-shadow: inset -5px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    position: relative;
+    font-weight: 300;
+    text-align: center;
+    user-select: none;
+}
+
+.card-title span {
+    display: block;
+}
+
+.card-title-secondary{
+    font-size: 16px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.card-title-main {
+    font-family: "Petemoss", serif;
+    font-size: 64px;
+    font-weight: 400;
+}
+
+.card-title-apostrophe {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    font-size: 8px;
+}
+
+/* Card body styling */
+.card-body {
+    font-family: "Shantell Sans", serif;
+    padding: 14px;
+}
+
+.card-body p {
+    font-size: 10px;
+    font-weight: 300;
+}
+.card-body p+p {
+    margin-top: 10px;
+}
+
+/* Envelope styling */
+.envelope {
+    width: 300px;
+    height: 200px;
+    background-color: #fff;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 1px #000;
+}
+
+.envelope::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-top: 75px solid transparent;
+    border-right: 150px solid white;
+    border-bottom: 125px solid white;
+    border-left: 150px solid white;
+}
+
+.envelope:hover .card-wrapper {
+    animation: show-card 1000ms 600ms forwards;
+}
+
+.envelope:not(:hover) .card-wrapper {
+    animation: hide-card 1000ms forwards;
+}
+
+/* Keyframes */
+@keyframes show-card {
+    50% {
+        transform: translateY(-75%) rotate(-90deg);
+        z-index: -1;
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg);
+        z-index: 10;
+    }
+}
+
+@keyframes hide-card {
+    0% {
+        z-index: 10;
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-75%) rotate(-90deg);
+        z-index: -1;
+    }
+
+    100% {
+        transform: translateY(0) rotate(-90deg);
+
+    }
+}
+
+/* Card lid styling */
+.envelope-lid {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.envelope-lid::before,
+.envelope-lid::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: calc(100% - 31.85px);
+    background-color: #000;
+}
+
+.envelope-lid::before {
+    left: 0;
+    transform: rotate(-63.1deg);
+    transform-origin: top left;
+}
+
+.envelope-lid::after {
+    right: 0;
+    transform: rotate(63.1deg);
+    transform-origin: top right;
+}
+
+.envelope-lid-secondary {
+    background-color: #fff;
+    clip-path: polygon(50% 38%, 0 0, 100% 0);
+    transition: transform 500ms 1000ms;
+    transform-origin: top;
+}
+
+.envelope:hover .envelope-lid-secondary {
+    transform: rotateX(180deg);
+    transition-delay: 100ms;
+    animation: open-lid-stacking 500ms forwards;
+
+}
+
+.envelope:not(:hover) .envelope-lid-secondary {
+    animation: close-lid-stacking 1250ms forwards;
+
+}
+
+@keyframes open-lid-stacking {
+    50% {
+        z-index: 1;
+    }
+
+    100% {
+        z-index: -1;
+    }
+}
+
+@keyframes close-lid-stacking {
+
+    0%,
+    50% {
+        z-index: -2;
+
+    }
+
+    100% {
+        z-index: 1;
+    }
+}
+
